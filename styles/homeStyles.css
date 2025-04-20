@@ -1,3 +1,23 @@
 .nav-link:hover {
   color: gray !important;
 }
+header {
+  max-width: 100%;
+}
+.navbarContainer {
+  margin: 0px;
+}
+.carousel {
+  border-bottom: 5px solid orange;
+  border-top: 5px solid orange;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: gray;
+}
+footer {
+  border-top: 5px solid orange;
+}

@@ -21,9 +21,53 @@
   </head>
   <body>
     <!--------------------------------------------------- NavBar -->
+    <header class="bg-dark">
+      <div class="row navbarContainer">
+        <div class="col d-flex justify-content-center align-items-center">
+          <img src="imgs/automotora_vip_logo.png" width="100px" height="22px" />
+        </div>
+        <div class="col">
+          <nav class="navbar navbar-expand-lg bg-body-dark">
+            <div class="container-fluid">
+              <button
+                class="navbar-toggler bg-light"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="#"
+                      >Venta 0km</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="#">Venta Usados</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="sobre-nosotros.html"
+                      >Sobre Nosotros</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="#">Contacto</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
 
     <!--------------------------------------------------- Carousel -->
-    <div id="carouselExampleCaptions" class="carousel slide w-7">
+    <div id="carouselExampleCaptions" class="carousel slide w-7 carousel">
       <div class="carousel-indicators">
         <button
           type="button"
@@ -126,7 +170,98 @@
       </button>
     </div>
     <!-------------------------------------------- Fin del carousel -->
-
+    <!-------------------------------------------- Tarjetas -->
+    <div class="container py-4">
+      <div>
+        <h2>Bienvenido a <span class="fw-light">AUTO</span>VIP</h2>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="card">
+            <div class="card-header">
+              <i class="bi bi-car-front-fill m3-1"></i>Venta de 0km
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                dolore nulla maiores saepe velit quaerat non modi, impedit nisi
+                sit soluta temporibus! Nihil tempore officia, perferendis quae
+                quasi nostrum maxime.
+              </p>
+              <a href="#" class="btn btn-outline-secondary">Ver autos</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="card">
+            <div class="card-header">
+              <i class="bi bi-megaphone-fill me-1"></i>Venta de Usados
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                dolore nulla maiores saepe velit quaerat non modi, impedit nisi
+                sit soluta temporibus! Nihil tempore officia, perferendis quae
+                quasi nostrum maxime.
+              </p>
+              <a href="ventas.html" class="btn btn-outline-secondary"
+                >Ver autos</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="card">
+            <div class="card-header">
+              <i class="bi bi-file-earmark-text me-1"></i>Trámites
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                dolore nulla maiores saepe velit quaerat non modi, impedit nisi
+                sit soluta temporibus! Nihil tempore officia, perferendis quae
+                quasi nostrum maxime.
+              </p>
+              <a href="#" class="btn btn-outline-secondary">Ver trámites</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-------------------------------------------- Fin de tarjetas -->
+    <!-------------------------------------------- Footer -->
+    <footer class="bg-dark text-light">
+      <div
+        class="container d-flex justify-content-center align-items-baseline py-3"
+      >
+        <div class="col">
+          <a href="index.html">
+            <img
+              src="imgs/automotora_vip_logo.png"
+              alt="autovip logo"
+              width="80px"
+            />
+          </a>
+        </div>
+        <div class="col">
+          <a target="_blank" class="d-block" href="ventas.html" class=""
+            >Venta 0km</a
+          >
+          <a target="_blank" class="d-block" href="ventas.html">Venta Usados</a>
+        </div>
+        <div class="col">
+          <a target="_blank" class="d-block" href="sobre-nosotros.html"
+            >Sobre Nosotros</a
+          >
+          <a target="_blank" class="d-block" href="#">Contacto</a>
+        </div>
+        <div class="col">
+          <p>Copyright © AutoVIP 2025</p>
+        </div>
+      </div>
+    </footer>
+    <!-------------------------------------------- Fin del footer -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
