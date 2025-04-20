@@ -19,5 +19,136 @@
     <!-- My style -->
     <link rel="stylesheet" href="styles/ventasStyles.css" />
   </head>
-  <body></body>
+  <body>
+    <!--------------------------------------------------- NavBar -->
+    <header class="bg-dark">
+      <div class="row navbarContainer">
+        <div class="col d-flex justify-content-center align-items-center">
+          <a href="index.html">
+            <img
+              src="imgs/automotora_vip_logo.png"
+              width="100px"
+              height="22px"
+            />
+          </a>
+        </div>
+        <div class="col">
+          <nav class="navbar navbar-expand-lg bg-body-dark">
+            <div class="container-fluid">
+              <button
+                class="navbar-toggler bg-light"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-light"
+                      aria-current="page"
+                      href="ventas.html"
+                      >Venta 0km</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="ventas.html"
+                      >Venta Usados</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="sobre-nosotros.html"
+                      >Sobre Nosotros</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="#">Contacto</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!---------------------------------------------- Fin del NavBar -->
+
+    <!------------------------------------------------ Main Content -->
+    <div class="container">
+      <h2>Ventas</h2>
+      <hr />
+      <div class="row">
+        <div class="col-2">
+          <aside>
+            <h5>Filtro</h5>
+            <hr />
+            <label for="año" class="form-label">Año</label>
+            <select name="marca" id="año" class="form-select">
+              <option value="25">2025</option>
+              <option value="24">2024</option>
+              <option value="23">2023</option>
+              <option value="22">2022</option>
+              <option value="21">2021</option>
+              <option value="20">2020</option>
+            </select>
+            <label for="marca" class="form-label">Marca</label>
+            <select name="marca" id="marca" class="form-select">
+              <option value="audi">Audi</option>
+              <option value="bentley">Bentley</option>
+              <option value="bmw">BMW</option>
+              <option value="volvo">Volvo</option>
+            </select>
+            <label for="modelo" class="form-label">Modelo</label>
+            <select name="modelo" id="modelo" class="form-select" disabled>
+              <option value="audi">Audi</option>
+              <option value="bentley">Bentley</option>
+              <option value="bmw">BMW</option>
+              <option value="volvo">Volvo</option>
+            </select>
+            <label for="estado" class="form-label">Estado</label>
+            <select name="estado" id="estado" class="form-select">
+              <option value="nuevo">Nuevo</option>
+              <option value="usado">Usado</option>
+            </select>
+          </aside>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <!---------------------------------------- Fin del Main Contetn -->
+
+    <!----------------------------------------------------- Footer -->
+    <footer class="bg-dark text-light">
+      <div
+        class="container d-flex justify-content-center align-items-baseline py-3"
+      >
+        <div class="col">
+          <a href="index.html">
+            <img
+              src="imgs/automotora_vip_logo.png"
+              alt="autovip logo"
+              width="80px"
+            />
+          </a>
+        </div>
+        <div class="col">
+          <a class="d-block" href="ventas.html" class="">Venta 0km</a>
+          <a class="d-block" href="ventas.html">Venta Usados</a>
+        </div>
+        <div class="col">
+          <a class="d-block" href="sobre-nosotros.html">Sobre Nosotros</a>
+          <a class="d-block" href="#">Contacto</a>
+        </div>
+        <div class="col">
+          <p>Copyright © AutoVIP 2025</p>
+        </div>
+      </div>
+    </footer>
+    <!---------------------------------------------- Fin del footer -->
+  </body>
 </html>
