@@ -8,8 +8,13 @@ header {
   margin: 0px;
 }
 .carousel {
-  border-bottom: 5px solid orange;
   border-top: 5px solid orange;
+}
+
+.cardsContainer {
+  border-top: 5px solid orange;
+  padding-left: 20vw;
+  padding-right: 20vw;
 }
 a {
   text-decoration: none;

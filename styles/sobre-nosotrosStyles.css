@@ -1,0 +1,22 @@
+.nav-link:hover {
+  color: gray !important;
+}
+header {
+  max-width: 100%;
+  border-bottom: 5px solid orange;
+  margin-bottom: 10px;
+}
+.navbarContainer {
+  margin: 0px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: gray;
+}
+
+footer {
+  border-top: 5px solid orange;
+}

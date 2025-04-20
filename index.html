@@ -43,12 +43,17 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="#"
+                    <a
+                      class="nav-link text-light"
+                      aria-current="page"
+                      href="ventas.html"
                       >Venta 0km</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Venta Usados</a>
+                    <a class="nav-link text-light" href="ventas.html"
+                      >Venta Usados</a
+                    >
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-light" href="sobre-nosotros.html"
@@ -67,7 +72,7 @@
     </header>
 
     <!--------------------------------------------------- Carousel -->
-    <div id="carouselExampleCaptions" class="carousel slide w-7 carousel">
+    <div id="carouselExampleCaptions" class="carousel slide">
       <div class="carousel-indicators">
         <button
           type="button"
@@ -102,7 +107,7 @@
           aria-label="Slide 5"
         ></button>
       </div>
-      <div class="carousel-inner">
+      <div class="carousel-inner slider">
         <div class="carousel-item active">
           <img
             src="imgs/cars_home/audi_1.jpg"
@@ -171,64 +176,66 @@
     </div>
     <!-------------------------------------------- Fin del carousel -->
     <!-------------------------------------------- Tarjetas -->
-    <div class="container py-4">
-      <div>
-        <h2>Bienvenido a <span class="fw-light">AUTO</span>VIP</h2>
+    <main class="cardsContainer">
+      <div class="container py-4">
+        <div>
+          <h2>Bienvenido a <span class="fw-light">AUTO</span>VIP</h2>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="card">
+              <div class="card-header">
+                <i class="bi bi-car-front-fill m3-1"></i>Venta de 0km
+              </div>
+              <div class="card-body">
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                  dolore nulla maiores saepe velit quaerat non modi, impedit
+                  nisi sit soluta temporibus! Nihil tempore officia, perferendis
+                  quae quasi nostrum maxime.
+                </p>
+                <a href="#" class="btn btn-outline-secondary">Ver autos</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="card">
+              <div class="card-header">
+                <i class="bi bi-megaphone-fill me-1"></i>Venta de Usados
+              </div>
+              <div class="card-body">
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                  dolore nulla maiores saepe velit quaerat non modi, impedit
+                  nisi sit soluta temporibus! Nihil tempore officia, perferendis
+                  quae quasi nostrum maxime.
+                </p>
+                <a href="ventas.html" class="btn btn-outline-secondary"
+                  >Ver autos</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="card">
+              <div class="card-header">
+                <i class="bi bi-file-earmark-text me-1"></i>Trámites
+              </div>
+              <div class="card-body">
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                  dolore nulla maiores saepe velit quaerat non modi, impedit
+                  nisi sit soluta temporibus! Nihil tempore officia, perferendis
+                  quae quasi nostrum maxime.
+                </p>
+                <a href="#" class="btn btn-outline-secondary">Ver trámites</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <hr />
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="card">
-            <div class="card-header">
-              <i class="bi bi-car-front-fill m3-1"></i>Venta de 0km
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-                dolore nulla maiores saepe velit quaerat non modi, impedit nisi
-                sit soluta temporibus! Nihil tempore officia, perferendis quae
-                quasi nostrum maxime.
-              </p>
-              <a href="#" class="btn btn-outline-secondary">Ver autos</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="card">
-            <div class="card-header">
-              <i class="bi bi-megaphone-fill me-1"></i>Venta de Usados
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-                dolore nulla maiores saepe velit quaerat non modi, impedit nisi
-                sit soluta temporibus! Nihil tempore officia, perferendis quae
-                quasi nostrum maxime.
-              </p>
-              <a href="ventas.html" class="btn btn-outline-secondary"
-                >Ver autos</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="card">
-            <div class="card-header">
-              <i class="bi bi-file-earmark-text me-1"></i>Trámites
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-                dolore nulla maiores saepe velit quaerat non modi, impedit nisi
-                sit soluta temporibus! Nihil tempore officia, perferendis quae
-                quasi nostrum maxime.
-              </p>
-              <a href="#" class="btn btn-outline-secondary">Ver trámites</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </main>
     <!-------------------------------------------- Fin de tarjetas -->
     <!-------------------------------------------- Footer -->
     <footer class="bg-dark text-light">
@@ -245,16 +252,12 @@
           </a>
         </div>
         <div class="col">
-          <a target="_blank" class="d-block" href="ventas.html" class=""
-            >Venta 0km</a
-          >
-          <a target="_blank" class="d-block" href="ventas.html">Venta Usados</a>
+          <a class="d-block" href="ventas.html" class="">Venta 0km</a>
+          <a class="d-block" href="ventas.html">Venta Usados</a>
         </div>
         <div class="col">
-          <a target="_blank" class="d-block" href="sobre-nosotros.html"
-            >Sobre Nosotros</a
-          >
-          <a target="_blank" class="d-block" href="#">Contacto</a>
+          <a class="d-block" href="sobre-nosotros.html">Sobre Nosotros</a>
+          <a class="d-block" href="#">Contacto</a>
         </div>
         <div class="col">
           <p>Copyright © AutoVIP 2025</p>
