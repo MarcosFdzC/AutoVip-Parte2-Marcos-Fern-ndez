@@ -16,6 +16,14 @@ a {
 a:hover {
   color: gray;
 }
+.btnFiltrar {
+  background-color: orange;
+}
+
+.nuevo {
+  top: 10px;
+  left: 10px;
+}
 
 footer {
   border-top: 5px solid orange;
