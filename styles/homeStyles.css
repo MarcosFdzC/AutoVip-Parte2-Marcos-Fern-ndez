@@ -10,7 +10,9 @@ header {
 .carousel {
   border-top: 5px solid orange;
 }
-
+.carruselSize {
+  height: 36vw;
+}
 .cardsContainer {
   border-top: 5px solid orange;
   padding-left: 20vw;
