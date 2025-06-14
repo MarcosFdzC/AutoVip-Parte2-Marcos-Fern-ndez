@@ -100,34 +100,20 @@
             <h5>Filtro</h5>
             <hr />
             <label for="año" class="form-label">Año</label>
-            <select name="marca" id="año" class="form-select">
-              <option value="25">2025</option>
-              <option value="24">2024</option>
-              <option value="23">2023</option>
-              <option value="22">2022</option>
-              <option value="21">2021</option>
-              <option value="20">2020</option>
-            </select>
+            <select name="año" id="año" class="form-select"></select>
             <label for="marca" class="form-label mt-4">Marca</label>
-            <select name="marca" id="marca" class="form-select">
-              <option value="audi">Audi</option>
-              <option value="bentley">Bentley</option>
-              <option value="bmw">BMW</option>
-              <option value="volvo">Volvo</option>
-            </select>
+            <select name="marca" id="marca" class="form-select"></select>
             <label for="modelo" class="form-label mt-4">Modelo</label>
-            <select name="modelo" id="modelo" class="form-select" disabled>
-              <option value="audi">Audi</option>
-              <option value="bentley">Bentley</option>
-              <option value="bmw">BMW</option>
-              <option value="volvo">Volvo</option>
-            </select>
+            <select name="modelo" id="modelo" class="form-select"></select>
             <label for="estado" class="form-label mt-4">Estado</label>
             <select name="estado" id="estado" class="form-select">
               <option value="nuevo">Nuevo</option>
               <option value="usado">Usado</option>
             </select>
-            <button class="btn btn-warning w-100 btnFiltrar my-3">
+            <button
+              id="btnFiltrar"
+              class="btn btn-warning w-100 btnFiltrar my-3"
+            >
               <i class="bi bi-search"></i> Filtrar
             </button>
           </aside>
@@ -139,10 +125,9 @@
         </div>
         <!------------------------------------------ Fin del Filtro -->
         <!--------------------------------------------------- Autos -->
-        <div class="col col-lg-9">
-
+        <div id="contenedorCartas" class="col col-lg-9">
           <!-- Carta 1 -->
-          <div class="card mb-3 border-top-0 border-end-0 border-start-0">
+          <!-- <div class="card mb-3 border-top-0 border-end-0 border-start-0">
             <div class="row g-0">
               <div class="col-md-4 col-xs-12 position-relative">
                 <img
@@ -187,331 +172,8 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Fin Carta 1 -->
-
-          <!-- Carta 2 -->
-          <div class="card mb-3 border-top-0 border-end-0 border-start-0">
-            <div class="row g-0">
-              <div class="col-md-4 col-xs-12 position-relative">
-                <img
-                  src="imgs/cars_sales/audi_q7_2015.jpg"
-                  class="img-fluid rounded-1 border border-2 p-1"
-                  alt="Audi Q5"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <h5 class="card-title">Audi Q7</h5>
-                    <p>
-                      2017 | USD 110.000 | 
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="far fa-star text-warning"></i>
-                      <i class="far fa-star text-warning"></i></i>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, consectetur, recusandae obcaecati ducimus dolore voluptate temporibus quo exercitationem natus illum numquam. Sint repudiandae corrupti, temporibus quo est quibusdam non repellendus praesentium officia fugiat, molestias magnam quidem eveniet autem quisquam veritatis dolore ipsa dolor commodi sunt excepturi saepe quae! Debitis, delectus.
-                  </p>
-                  <div>
-                    <button class="btn btn-success">
-                      <i class="fa-solid fa-cart-shopping"></i> 
-                      Comprar
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-plus"></i> 
-                      Más información
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-share-from-square"></i> Compartir
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Fin Carta 2 -->
-           <!-- Carta 3 -->
-          <div class="card mb-3 border-top-0 border-end-0 border-start-0">
-            <div class="row g-0">
-              <div class="col-md-4 col-xs-12 position-relative">
-                <img
-                  src="imgs/cars_sales/audi_a6_quattro_2016.jpg"
-                  class="img-fluid rounded-1 border border-2 p-1"
-                  alt="Audi Q5"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <h5 class="card-title">Audi A6 Quattro</h5>
-                    <p>
-                      2021 | USD 98.000 | 
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="far fa-star text-warning"></i></i>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, consectetur, recusandae obcaecati ducimus dolore voluptate temporibus quo exercitationem natus illum numquam. Sint repudiandae corrupti, temporibus quo est quibusdam non repellendus praesentium officia fugiat, molestias magnam quidem eveniet autem quisquam veritatis dolore ipsa dolor commodi sunt excepturi saepe quae! Debitis, delectus.
-                  </p>
-                  <div>
-                    <button class="btn btn-success">
-                      <i class="fa-solid fa-cart-shopping"></i> 
-                      Comprar
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-plus"></i> 
-                      Más información
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-share-from-square"></i> Compartir
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Fin Carta 3 -->
-          <!-- Carta 4 -->
-          <div class="card mb-3 border-top-0 border-end-0 border-start-0">
-            <div class="row g-0">
-              <div class="col-md-4 col-xs-12 position-relative">
-                <img
-                  src="imgs/cars_sales/audi_r8_2016.jpg"
-                  class="img-fluid rounded-1 border border-2 p-1"
-                  alt="Audi Q5"
-                />
-                <span
-                  class="badge nuevo text-light text-bg-warning position-absolute"
-                  >Nuevo</span
-                >
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <h5 class="card-title">Audi R8</h5>
-                    <p>
-                      2020 | USD 282.000 | 
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i></i>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    El precio de la gama del R8 se ubica desde US$ 282.000, aunque el modelo GT Sypder presentado en Uruguay alcanza una cifra superior porque se trata de una edición limitada. La serie R8 se compone de dos variantes de carrocería, Coupé y Spyder, y de dos motorizaciones V8 de 430 HP y V10 de 530 HP.
-                  </p>
-                  <div>
-                    <button class="btn btn-success">
-                      <i class="fa-solid fa-cart-shopping"></i> 
-                      Comprar
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-plus"></i> 
-                      Más información
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-share-from-square"></i> Compartir
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Fin Carta 4 -->
-          <!-- Carta 5 -->
-          <div class="card mb-3 border-top-0 border-end-0 border-start-0">
-            <div class="row g-0">
-              <div class="col-md-4 col-xs-12 position-relative">
-                <img
-                  src="imgs/cars_sales/bentley_continental_gt_speed_2014.jpg"
-                  class="img-fluid rounded-1 border border-2 p-1"
-                  alt="Audi Q5"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <h5 class="card-title">Bentley Continental GT</h5>
-                    <p>
-                      2025 | USD 334.470 | 
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i></i>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    El Bentley Continental GT es el modelo más deportivo que comercializa la firma británica Bentley. Se trata de un coupé en configuración 2+2 plazas que se caracteriza por ofrecer un concepto donde priman el máximo lujo y las más altas prestaciones. La última (la cuarta) evolución de la saga Continental GT se presentó en 2024, y podríamos decir que se trata de una evolución profunda de su tercera generación, lanzada en 2017.
-                  </p>
-                  <div>
-                    <button class="btn btn-success">
-                      <i class="fa-solid fa-cart-shopping"></i> 
-                      Comprar
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-plus"></i> 
-                      Más información
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-share-from-square"></i> Compartir
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Fin Carta 5 -->
-          <!-- Carta 6 -->
-          <div class="card mb-3 border-top-0 border-end-0 border-start-0">
-            <div class="row g-0">
-              <div class="col-md-4 col-xs-12 position-relative">
-                <img
-                  src="imgs/cars_sales/bmw_750li_2016.jpg"
-                  class="img-fluid rounded-1 border border-2 p-1"
-                  alt="Audi Q5"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <h5 class="card-title">BMW 750li</h5>
-                    <p>
-                      2015 | USD 52.000 | 
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="far fa-star text-warning"></i>
-                      <i class="far fa-star text-warning"></i></i>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    El precio de la gama del R8 se ubica desde US$ 282.000, aunque el modelo GT Sypder presentado en Uruguay alcanza una cifra superior porque se trata de una edición limitada. La serie R8 se compone de dos variantes de carrocería, Coupé y Spyder, y de dos motorizaciones V8 de 430 HP y V10 de 530 HP.
-                  </p>
-                  <div>
-                    <button class="btn btn-success">
-                      <i class="fa-solid fa-cart-shopping"></i> 
-                      Comprar
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-plus"></i> 
-                      Más información
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-share-from-square"></i> Compartir
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Fin Carta 6 -->
-           <!-- Carta 7 -->
-          <div class="card mb-3 border-top-0 border-end-0 border-start-0">
-            <div class="row g-0">
-              <div class="col-md-4 col-xs-12 position-relative">
-                <img
-                  src="imgs/cars_sales/jaguar_xj_2017.jpg"
-                  class="img-fluid rounded-1 border border-2 p-1"
-                  alt="Audi Q5"
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <h5 class="card-title">Jaguar xj</h5>
-                    <p>
-                      2020 | USD 35.650 | 
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="far fa-star text-warning"></i>
-                      <i class="far fa-star text-warning"></i></i>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    El Jaguar XJ cuenta con tres opciones de motorización, siendo un diesel y dos de gasolina: el modelo de entrada y único que cuesta menos de 100.000 euros es el V6 turbodiésel 3.0, mientras que los dos gasolina existentes son dos superchargers, el 3.0 V6 – con la particularidad de poder tener tracción a las cuatro ruedas – y el 5.0 V8, exclusivo para el XJR. Todos ellos están disponibles con caja de cambios automática de ocho velocidades.
-                  </p>
-                  <div>
-                    <button class="btn btn-success">
-                      <i class="fa-solid fa-cart-shopping"></i> 
-                      Comprar
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-plus"></i> 
-                      Más información
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-share-from-square"></i> Compartir
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Fin Carta 7 -->
-           <!-- Carta 8 -->
-          <div class="card mb-3 border-top-0 border-end-0 border-start-0">
-            <div class="row g-0">
-              <div class="col-md-4 col-xs-12 position-relative">
-                <img
-                  src="imgs/cars_sales/volvo_xc90_2015.jpg"
-                  class="img-fluid rounded-1 border border-2 p-1"
-                  alt="Audi Q5"
-                />
-                <span
-                  class="badge nuevo text-light text-bg-warning position-absolute"
-                  >Nuevo</span
-                >
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <h5 class="card-title">Volvo Xc90</h5>
-                    <p>
-                      2023 | USD 104.990 | 
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i></i>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, consectetur, recusandae obcaecati ducimus dolore voluptate temporibus quo exercitationem natus illum numquam. Sint repudiandae corrupti, temporibus quo est quibusdam non repellendus praesentium officia fugiat, molestias magnam quidem eveniet autem quisquam veritatis dolore ipsa dolor commodi sunt excepturi saepe quae! Debitis, delectus.
-                  </p>
-                  <div>
-                    <button class="btn btn-success">
-                      <i class="fa-solid fa-cart-shopping"></i> 
-                      Comprar
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-plus"></i> 
-                      Más información
-                    </button>
-                    <button class="btn border border-2 round-1">
-                      <i class="fa-solid fa-share-from-square"></i> Compartir
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Fin Carta 8 -->
-           
-           
-
-
-
-
         </div>
         <!-------------------------------------------- Fin de autos -->
       </div>
@@ -545,6 +207,7 @@
         </div>
       </div>
     </footer>
+    <script src="js\ventasApp.js"></script>
     <!---------------------------------------------- Fin del footer -->
   </body>
 </html>
