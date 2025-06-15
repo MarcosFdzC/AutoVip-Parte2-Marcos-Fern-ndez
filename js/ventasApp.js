@@ -251,7 +251,6 @@ btnFiltrar.addEventListener("click", function () {
   if (frmModelo.value == "") {
     cargarXMarca(frmMarca.value);
   } else {
-    alert("else");
     fetch(
       `https://ha-front-api-proyecto-final.vercel.app/cars?year=2017&brand=${frmMarca.value}&model=${frmModelo.value}`
     )
