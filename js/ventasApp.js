@@ -15,7 +15,6 @@ function cargarTarjetas() {
       return response.json();
     })
     .then(function (autos) {
-      console.log(autos);
       for (const auto of autos) {
         contCartas.insertAdjacentHTML(
           "beforeend",
@@ -84,7 +83,74 @@ function cargarXMarca(marca) {
       contCartas.innerHTML = "";
       for (const auto of autos) {
         if (auto.brand == marca) {
-          debugger;
+          contCartas.insertAdjacentHTML(
+            "beforeend",
+            `
+              <div class="card mb-3 border-top-0 border-end-0 border-start-0">
+                  <div class="row g-0">
+                    <div class="col-md-4 col-xs-12 position-relative">
+                      <img
+                        src="${auto.image}"
+                        class="img-fluid rounded-1 border border-2 p-1"
+                        alt="${auto.brand + auto.model}"
+                      />
+                      <span
+                        class="badge nuevo text-light text-bg-warning position-absolute"
+                        >Nuevo</span
+                      >
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                          <h5 class="card-title">${
+                            auto.brand + " " + auto.model
+                          }</h5>
+                          <p>
+                            ${auto.year} | USD ${auto.price_usd} |
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i></i>
+                          </p>
+                        </div>
+                        <p class="card-text">
+                          ${auto.description}
+                        </p>
+                        <div>
+                          <button class="btn btn-success">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            Comprar
+                          </button>
+                          <button class="btn border border-2 round-1">
+                            <i class="fa-solid fa-plus"></i>
+                            Más información
+                          </button>
+                          <button class="btn border border-2 round-1">
+                            <i class="fa-solid fa-share-from-square"></i> Compartir
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>`
+          );
+        }
+      }
+    })
+    .catch(function (error) {
+      alert(error);
+    });
+}
+function cargarXAño(año) {
+  fetch(`https://ha-front-api-proyecto-final.vercel.app/cars`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (autos) {
+      contCartas.innerHTML = "";
+      for (const auto of autos) {
+        if (auto.year == año) {
           contCartas.insertAdjacentHTML(
             "beforeend",
             `
@@ -146,13 +212,18 @@ function cargarXMarca(marca) {
 }
 //----------------------------------- FILTRO ---------------------------
 //Carga de años
-let año = 2026;
-for (let i = 126; i > 0; i--) {
-  año--;
-  frmAño.insertAdjacentHTML(
-    "beforeend",
-    `<option value="${año}">${año}</option>`
-  );
+for (let i = 2026; i >= 1900; i--) {
+  if (i == 2026) {
+    frmAño.insertAdjacentHTML(
+      "beforeend",
+      `<option value="-- Seleccione un año --">-- Seleccione un año --</option>`
+    );
+  } else {
+    frmAño.insertAdjacentHTML(
+      "beforeend",
+      `<option value="${i}">${i}</option>`
+    );
+  }
 }
 //Cargar marcas
 fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
@@ -166,7 +237,10 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
       if (bandera) {
         frmMarca.insertAdjacentHTML(
           "afterbegin",
-          `<option value="${nombre}" selected>${nombre}</option>`
+          `
+          <option value="${nombre}" selected>${nombre}</option>
+          <option value="-- Seleccione una Marca --" selected>-- Seleccione una Marca --</option>
+          `
         );
         bandera = 0;
       } else {
@@ -190,9 +264,9 @@ fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
             bandera = 0;
             frmModelo.insertAdjacentHTML(
               "afterbegin",
-              `<option value="" selected>-- Seleccione un modelo --</option>
-              <option value="${nombre}">${nombre}</option>
-              `
+              `<option value="-- Seleccione un modelo --" selected>-- Seleccione un modelo --</option>
+                <option value="${nombre}">${nombre}</option>
+                `
             );
           } else {
             frmModelo.insertAdjacentHTML(
@@ -219,23 +293,31 @@ frmMarca.addEventListener("change", function () {
       return response.json();
     })
     .then(function (modelo) {
-      frmModelo.innerHTML = "";
-      let bandera = 1;
-      for (const nombre of modelo) {
-        if (bandera) {
-          bandera = 0;
-          frmModelo.insertAdjacentHTML(
-            "afterbegin",
-            `
-            <option value="${nombre}">${nombre}</option>
-            <option value="" selected>-- Seleccione un modelo --</option>
-            `
-          );
-        } else {
-          frmModelo.insertAdjacentHTML(
-            "afterbegin",
-            `<option value="${nombre}">${nombre}</option>`
-          );
+      if (frmMarca.value === "-- Seleccione una Marca --") {
+        frmModelo.innerHTML = "";
+        frmModelo.insertAdjacentHTML(
+          "afterbegin",
+          `<option value="-- Seleccione un modelo --" selected>-- Seleccione un modelo --</option>`
+        );
+      } else {
+        frmModelo.innerHTML = "";
+        let bandera = 1;
+        for (const nombre of modelo) {
+          if (bandera) {
+            bandera = 0;
+            frmModelo.insertAdjacentHTML(
+              "afterbegin",
+              `
+              <option value="${nombre}">${nombre}</option>
+              <option value="-- Seleccione un modelo --" selected>-- Seleccione un modelo --</option>
+              `
+            );
+          } else {
+            frmModelo.insertAdjacentHTML(
+              "afterbegin",
+              `<option value="${nombre}">${nombre}</option>`
+            );
+          }
         }
       }
     })
@@ -248,7 +330,13 @@ frmMarca.addEventListener("change", function () {
 cargarTarjetas();
 //cargar de tarjetas filtradas
 btnFiltrar.addEventListener("click", function () {
-  if (frmModelo.value == "") {
+  contCartas.innerHTML = "";
+  if (
+    frmMarca.value === "-- Seleccione una Marca --" &&
+    frmModelo.value === "-- Seleccione un modelo --"
+  ) {
+    cargarXAño(frmAño.value);
+  } else if (frmModelo.value == "-- Seleccione un modelo --") {
     cargarXMarca(frmMarca.value);
   } else {
     fetch(
@@ -258,60 +346,69 @@ btnFiltrar.addEventListener("click", function () {
         return response.json();
       })
       .then(function (autos) {
-        contCartas.innerHTML = "";
-        for (const auto of autos) {
+        if (autos.length == 0) {
+          console.log(autos);
           contCartas.insertAdjacentHTML(
-            "beforeend",
-            `
-            <div class="card mb-3 border-top-0 border-end-0 border-start-0">
-                <div class="row g-0">
-                  <div class="col-md-4 col-xs-12 position-relative">
-                    <img
-                      src="${auto.image}"
-                      class="img-fluid rounded-1 border border-2 p-1"
-                      alt="${auto.brand + auto.model}"
-                    />
-                    <span
-                      class="badge nuevo text-light text-bg-warning position-absolute"
-                      >Nuevo</span
-                    >
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between">
-                        <h5 class="card-title">${
-                          auto.brand + " " + auto.model
-                        }</h5>
-                        <p>
-                          ${auto.year} | USD ${auto.price_usd} | 
-                          <i class="fas fa-star text-warning"></i>
-                          <i class="fas fa-star text-warning"></i>
-                          <i class="fas fa-star text-warning"></i>
-                          <i class="fas fa-star text-warning"></i>
-                          <i class="fas fa-star text-warning"></i></i>
+            "afterbegin",
+            `<div class="alert alert-warning" role="alert">
+              No se ah encontrado ningún auto con esa marca y modelo.
+            </div>`
+          );
+        } else {
+          for (const auto of autos) {
+            contCartas.insertAdjacentHTML(
+              "beforeend",
+              `
+              <div class="card mb-3 border-top-0 border-end-0 border-start-0">
+                  <div class="row g-0">
+                    <div class="col-md-4 col-xs-12 position-relative">
+                      <img
+                        src="${auto.image}"
+                        class="img-fluid rounded-1 border border-2 p-1"
+                        alt="${auto.brand + auto.model}"
+                      />
+                      <span
+                        class="badge nuevo text-light text-bg-warning position-absolute"
+                        >Nuevo</span
+                      >
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                          <h5 class="card-title">${
+                            auto.brand + " " + auto.model
+                          }</h5>
+                          <p>
+                            ${auto.year} | USD ${auto.price_usd} |
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i></i>
+                          </p>
+                        </div>
+                        <p class="card-text">
+                          ${auto.description}
                         </p>
-                      </div>
-                      <p class="card-text">
-                        ${auto.description}
-                      </p>
-                      <div>
-                        <button class="btn btn-success">
-                          <i class="fa-solid fa-cart-shopping"></i> 
-                          Comprar
-                        </button>
-                        <button class="btn border border-2 round-1">
-                          <i class="fa-solid fa-plus"></i> 
-                          Más información
-                        </button>
-                        <button class="btn border border-2 round-1">
-                          <i class="fa-solid fa-share-from-square"></i> Compartir
-                        </button>
+                        <div>
+                          <button class="btn btn-success">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            Comprar
+                          </button>
+                          <button class="btn border border-2 round-1">
+                            <i class="fa-solid fa-plus"></i>
+                            Más información
+                          </button>
+                          <button class="btn border border-2 round-1">
+                            <i class="fa-solid fa-share-from-square"></i> Compartir
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>`
-          );
+                </div>`
+            );
+          }
         }
       })
       .catch(function (error) {
@@ -319,8 +416,9 @@ btnFiltrar.addEventListener("click", function () {
       });
   }
 });
-//resetear carga
 
+//resetear carga
 btnResetear.addEventListener("click", function () {
+  contCartas.innerHTML = "";
   cargarTarjetas();
 });
