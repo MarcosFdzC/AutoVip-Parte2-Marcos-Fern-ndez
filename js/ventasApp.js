@@ -226,104 +226,114 @@ for (let i = 2026; i >= 1900; i--) {
   }
 }
 //Cargar marcas
-fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (marcas) {
-    let bandera = 1;
-    let marca = marcas[0];
-    for (const nombre of marcas) {
-      if (bandera) {
-        frmMarca.insertAdjacentHTML(
-          "afterbegin",
-          `
-          <option value="${nombre}" selected>${nombre}</option>
-          <option value="-- Seleccione una Marca --" selected>-- Seleccione una Marca --</option>
-          `
-        );
-        bandera = 0;
-      } else {
-        frmMarca.insertAdjacentHTML(
-          "afterbegin",
-          `<option value="${nombre}">${nombre}</option>`
-        );
+function cargarMarcas() {
+  fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (marcas) {
+      let bandera = 1;
+      let marca = marcas[0];
+      for (const nombre of marcas) {
+        if (bandera) {
+          frmMarca.insertAdjacentHTML(
+            "afterbegin",
+            `
+            <option value="${nombre}" selected>${nombre}</option>
+            <option value="-- Seleccione una Marca --" selected>-- Seleccione una Marca --</option>
+            `
+          );
+          bandera = 0;
+        } else {
+          frmMarca.insertAdjacentHTML(
+            "afterbegin",
+            `<option value="${nombre}">${nombre}</option>`
+          );
+        }
       }
-    }
+      fetch(
+        `https://ha-front-api-proyecto-final.vercel.app/models?brand=${marca}`
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (modelo) {
+          frmModelo.innerHTML = "";
+          for (const nombre of modelo) {
+            let bandera = 1;
+            if (bandera) {
+              bandera = 0;
+              frmModelo.insertAdjacentHTML(
+                "afterbegin",
+                `<option value="-- Seleccione un modelo --" selected>-- Seleccione un modelo --</option>
+                  <option value="${nombre}">${nombre}</option>
+                  `
+              );
+            } else {
+              frmModelo.insertAdjacentHTML(
+                "afterbegin",
+                `<option value="${nombre}">${nombre}</option>`
+              );
+            }
+          }
+        })
+        .catch(function (error) {
+          alert(error);
+        });
+    })
+    .catch(function (error) {
+      alert(error);
+    });
+}
+cargarMarcas();
+//carga de modelos
+frmMarca.addEventListener("change", function () {
+  if (frmMarca.value === "-- Seleccione una Marca --") {
+    frmModelo.innerHTML = "";
+    frmModelo.insertAdjacentHTML(
+      "afterbegin",
+      `<option value="-- Seleccione un modelo --" selected>-- Seleccione un modelo --</option>`
+    );
+  } else {
     fetch(
-      `https://ha-front-api-proyecto-final.vercel.app/models?brand=${marca}`
+      `https://ha-front-api-proyecto-final.vercel.app/models?brand=${frmMarca.value}`
     )
       .then(function (response) {
         return response.json();
       })
       .then(function (modelo) {
-        frmModelo.innerHTML = "";
-        for (const nombre of modelo) {
+        if (modelo.length == 0) {
+          frmModelo.innerHTML = "";
+          frmModelo.insertAdjacentHTML(
+            "afterbegin",
+            `<option value="-- Seleccione un modelo --" selected>-- Seleccione un modelo --</option>`
+          );
+        } else {
+          frmModelo.innerHTML = "";
           let bandera = 1;
-          if (bandera) {
-            bandera = 0;
-            frmModelo.insertAdjacentHTML(
-              "afterbegin",
-              `<option value="-- Seleccione un modelo --" selected>-- Seleccione un modelo --</option>
-                <option value="${nombre}">${nombre}</option>
+          for (const nombre of modelo) {
+            if (bandera) {
+              bandera = 0;
+              frmModelo.insertAdjacentHTML(
+                "afterbegin",
                 `
-            );
-          } else {
-            frmModelo.insertAdjacentHTML(
-              "afterbegin",
-              `<option value="${nombre}">${nombre}</option>`
-            );
+                <option value="${nombre}">${nombre}</option>
+                <option value="-- Seleccione un modelo --" selected>-- Seleccione un modelo --</option>
+                `
+              );
+            } else {
+              frmModelo.insertAdjacentHTML(
+                "afterbegin",
+                `<option value="${nombre}">${nombre}</option>`
+              );
+            }
           }
         }
       })
       .catch(function (error) {
         alert(error);
       });
-  })
-  .catch(function (error) {
-    alert(error);
-  });
-
-//carga de modelos
-frmMarca.addEventListener("change", function () {
-  fetch(
-    `https://ha-front-api-proyecto-final.vercel.app/models?brand=${frmMarca.value}`
-  )
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (modelo) {
-      if (frmMarca.value === "-- Seleccione una Marca --") {
-        frmModelo.innerHTML = "";
-        frmModelo.insertAdjacentHTML(
-          "afterbegin",
-          `<option value="-- Seleccione un modelo --" selected>-- Seleccione un modelo --</option>`
-        );
-      } else {
-        frmModelo.innerHTML = "";
-        let bandera = 1;
-        for (const nombre of modelo) {
-          if (bandera) {
-            bandera = 0;
-            frmModelo.insertAdjacentHTML(
-              "afterbegin",
-              `
-              <option value="${nombre}">${nombre}</option>
-              <option value="-- Seleccione un modelo --" selected>-- Seleccione un modelo --</option>
-              `
-            );
-          } else {
-            frmModelo.insertAdjacentHTML(
-              "afterbegin",
-              `<option value="${nombre}">${nombre}</option>`
-            );
-          }
-        }
-      }
-    })
-    .catch(function (error) {
-      alert(error);
-    });
+  }
 });
 
 //----------------------------------- TARJETAS -------------------------
@@ -421,4 +431,5 @@ btnFiltrar.addEventListener("click", function () {
 btnResetear.addEventListener("click", function () {
   contCartas.innerHTML = "";
   cargarTarjetas();
+  cargarMarcas();
 });
